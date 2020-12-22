@@ -1,42 +1,50 @@
 var demandes = JSON.parse(localStorage.getItem("demandes"))
 var app = new (function () {
-    this.tbody = document.getElementById("tbody");
+    tbody = document.getElementById("tbody");
+    
     this.fetchall = () => {
         var data = "";
-        if (demandes.length > 0) {
-            demandes.forEach((obj) => {
-                data += "<tr>";
-                data += "<td>" + obj.id + "</td>";
-                data += "<td>" + obj.nom + "</td>";
-                data += "<td>" + obj.prenom + "</td>";
-                data += "<td>" + obj.dateDebut + "</td>";
-                data += "<td>" + obj.dateFin + "</td>";
+            demandes.forEach((demande) => {
+                statut=demande.statutDemande
 
-                data += "<td>" + obj.duree + "</td>";
-                data += "<td>" + obj.cause + "</td>";
+                data += "<tr>";
+                data += "<td>" + demande.id + "</td>";
+                data += "<td>" + demande.nom + "</td>";
+                data += "<td>" + demande.prenom + "</td>";
+                data += "<td>" + demande.dateDebut + "</td>";
+                data += "<td>" + demande.dateFin + "</td>";
+
+
+                data += "<td>" + demande.durée + "</td>";
+                data += "<td>" + demande.cause + "</td>";
                 data +=
-                    '<td><button data-toggle="modal" type="button" class="btn btn-primary"  data-target="#exampleModal" onclick="app.accepter(' +
-                    demandes.indexOf(obj) +
+                    '<td><button type="button" class="btn btn-primary" onclick="app.accepter(' +
+                    demandes.indexOf(demande) +
                     ')">Accepter</button></td>';
                 data +=
                     '<td><button class="btn btn-danger" onclick="app.refuser(' +
-                    deamndes.indexOf(obj) +
+                    demandes.indexOf(demande) +
                     ')">Refuser</button></td>';
                 data += "</tr >";
+                
             });
-        }
+        
 
         document.getElementById("tbody").innerHTML = data;
     };
 
 
-    this.accepter=()=>{
-        obj.statutDemande = "Accepté par sup";
+    this.accepter=(index)=>{
+        demandes.find
+         demandes.splice(index,1,statut="accepter");
+        // demande.statutDemande == "Accepté par sup";
         localStorage.setItem("demandes", JSON.stringify(demandes));
+    
     }
 
     this.refuser=()=>{
-        statutDemande = "Refusé";
+        demande.statutDemande = "Refusé";
         localStorage.setItem("demandes", JSON.stringify(demandes));
     }
-})
+ })
+app.fetchall();
