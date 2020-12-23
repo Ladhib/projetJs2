@@ -5,7 +5,7 @@ var app = new (function () {
     this.fetchall = () => {
         var data = "";
             demandes.forEach((demande) => {
-                statut=demande.statutDemande
+               
 
                 data += "<tr>";
                 data += "<td>" + demande.id + "</td>";
@@ -17,6 +17,7 @@ var app = new (function () {
 
                 data += "<td>" + demande.durée + "</td>";
                 data += "<td>" + demande.cause + "</td>";
+                data += "<td>" + demande.statutDemande + "</td>";
                 data +=
                     '<td><button type="button" class="btn btn-primary" onclick="app.accepter(' +
                     demandes.indexOf(demande) +
@@ -35,15 +36,17 @@ var app = new (function () {
 
 
     this.accepter=(index)=>{
-        demandes.find
-         demandes.splice(index,1,statut="accepter");
-        // demande.statutDemande == "Accepté par sup";
+        const found=demandes.find((demande) => demandes.indexOf(demande)==index);
+        found.statutDemande="Accepté"
+        demandes.splice(index,1,found);
         localStorage.setItem("demandes", JSON.stringify(demandes));
     
     }
 
-    this.refuser=()=>{
-        demande.statutDemande = "Refusé";
+    this.refuser=(index)=>{
+        const found=demandes.find((demande)=>demandes.indexOf(demande)==index)
+        found.statutDemande = "Refusé";
+        demandes.splice(index,1,found);
         localStorage.setItem("demandes", JSON.stringify(demandes));
     }
  })
