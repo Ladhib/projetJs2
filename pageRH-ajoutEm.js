@@ -9,8 +9,20 @@ function add() {
   var soldeCongé = document.getElementById("Scongé").value;
   var email = document.getElementById("email").value;
   var password = document.getElementById("password").value;
-  // var em = document.getElementById("em").value;
-  // var sup = document.getElementById("sup").value;
+
+  var checkbox;
+
+  EM = document.getElementById("inlineRadio1");
+  SUP = document.getElementById("inlineRadio2");
+  RH = document.getElementById("inlineRadio3");
+
+  if (EM.checked == true) {
+    var checkbox = document.getElementById("inlineRadio1").value;
+  } else if (SUP.checked == true) {
+    var checkbox = document.getElementById("inlineRadio2").value;
+  } else if (RH.checked == true) {
+    var checkbox = document.getElementById("inlineRadio3").value;
+  }
 
   var obj = {
     id: users.length + 10000,
@@ -20,7 +32,7 @@ function add() {
     soldeCongé: soldeCongé,
     email: email,
     password: password,
-    // poste: em,
+    poste: checkbox,
   };
 
   users.push(obj);

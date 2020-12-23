@@ -6,12 +6,12 @@ var app = new (function () {
     if (users.length > 0) {
       users.forEach((obj) => {
         data += "<tr>";
-        data += "<td>" + obj.id + "</td>";
         data += "<td>" + obj.nom + "</td>";
         data += "<td>" + obj.prenom + "</td>";
         data += "<td>" + obj.age + "</td>";
-        data += "<td>" + obj.soldeCongé + "</td>";
         data += "<td>" + obj.email + "</td>";
+        data += "<td>" + obj.soldeCongé + "</td>";
+
         data += "<td>" + obj.password + "</td>";
         data += "<td>" + obj.poste + "</td>";
         data +=
@@ -25,9 +25,8 @@ var app = new (function () {
         data += "</tr >";
       });
     }
-    console.log(data);
     localStorage.setItem("users", JSON.stringify(users));
-    document.getElementById("cc").innerHTML = data;
+    document.getElementById("tbody").innerHTML = data;
   };
 
   //   this.edit = function (element) {
