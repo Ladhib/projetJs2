@@ -7,7 +7,9 @@ var app = new (function () {
 
   this.fetchall = () => {
     var data = "";
-    const demandesFiltrer = demandes.filter((demande) => demande.id == user.id);
+    const demandesFiltrer = demandes.filter(
+      (demande) => demande.id == user.id && demande.statutDemande == "Refusée"
+    );
 
     demandesFiltrer.forEach((demande) => {
       data += "<tr>";

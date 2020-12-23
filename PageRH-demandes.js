@@ -1,11 +1,11 @@
 var demandes = JSON.parse(localStorage.getItem("demandes"));
 var app = new (function () {
   tbody = document.getElementById("tbody");
-  demandesFilter = demandes.filter((demande) => demande.statutDemande == "en cours");
+  demandesFilter = demandes.filter((demande) => demande.statutDemande == "Acceptée par sup");
 
   this.fetchall = () => {
     var data = "";
-    
+
     demandesFilter.forEach((demande) => {
       data += "<tr>";
       data += "<td>" + demande.id + "</td>";
@@ -14,11 +14,10 @@ var app = new (function () {
       data += "<td>" + demande.dateDebut + "</td>";
       data += "<td>" + demande.dateFin + "</td>";
 
-
       data += "<td>" + demande.durée + "</td>";
       data += "<td>" + demande.cause + "</td>";
       data +=
-        '<td><span class="badge bg-warning text-dark" style="height:1.5rem">' +
+        '<td><span class="badge bg-info text-dark" style="height:1.5rem">' +
         demande.statutDemande +
         "</span></td>";
       data +=
@@ -35,23 +34,18 @@ var app = new (function () {
     document.getElementById("tbody").innerHTML = data;
   };
 
+  this.accepter = (index) => {
+    const demandeFound = demandesFilter.find((demande) => demandesFilter.indexOf(demande) == index);
+    demandeFound.statutDemande = "Acceptée par RH";
+    demandes.splice(index, 1, demandeFound);
+    localStorage.setItem("demandes", JSON.stringify(demandes));
+  };
 
-    this.accepter=(index)=>{
-        const found=demandesFilter.find((demande) => demandesFilter.indexOf(demande)==index);
-        found.statutDemande="Acceptée par sup"
-        demandesFilter.splice(index,1,found);
-        localStorage.setItem("demandes", JSON.stringify(demandes));
-    
-    }
-
-    this.refuser=(index)=>{
-        const found=demandesFilter.find((demande)=>demandesFilter.indexOf(demande)==index)
-        found.statutDemande = "Refusée";
-        demandesFilter.splice(index,1,found);
-        localStorage.setItem("demandes", JSON.stringify(demandes));
-    }
- })
+  this.refuser = (index) => {
+    const demandeFound = demandesFilter.find((demande) => demandesFilter.indexOf(demande) == index);
+    demandeFound.statutDemande = "Refusée";
+    demandes.splice(index, 1, demandeFound);
+    localStorage.setItem("demandes", JSON.stringify(demandes));
+  };
+})();
 app.fetchall();
-
-
-

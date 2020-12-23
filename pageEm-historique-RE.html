@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Employé-Demande congé</title>
+    <title>Employé-Demandes Refusées</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link
@@ -41,7 +41,7 @@
     <!-- summernote -->
     <link rel="stylesheet" href="AdminLTE-3.1.0-rc/plugins/summernote/summernote-bs4.min.css" />
   </head>
-  <body class="hold-transition sidebar-mini layout-fixed" >
+  <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
       <!-- Navbar -->
       <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -212,40 +212,6 @@
           </li>
         </ul>
       </nav>
-
-<center>
-<div class="card bg-light mb-3" style="max-width: 70rem; margin-top: 5rem;">
-  <div class="card-header" >
-   <h3 style="text-align: center;">Historique des demandes de congés</h3>
-  </div>
-  <!-- /.card-header -->
-  <div class="card-body">
-    <table id="example1" class="table table-bordered table-striped" style="width: 60rem; font-size: 1.2rem;">
-      <thead>
-      <tr>
-        <th>Nom</th>
-        <th>Prenom</th>
-        <th>Date de debut</th>
-        <th>Date de fin</th>
-        <th>Cause</th>
-        <th>Statut</th>
-        <th>Supprimer</th>
-      </tr>
-      </thead>
-      <tbody id="tbody">
-      </tbody>
-    </table>
-  </div>
-  <!-- /.card-body -->
-</div>
-<!-- /.card -->
-</div>
-<!-- /.col -->
-</div>
-<!-- /.row -->
-</div>
-</center>
-
       <!-- /.navbar -->
 
       <!-- Main Sidebar Container -->
@@ -306,13 +272,55 @@
                with font-awesome or any other icon font library -->
               
               <li class="nav-item menu-open">
-                <a href="#" class="nav-link active">
+                <a href="pageEm-demande.html" class="nav-link active">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>
-                    
+                    Demander un congé
                   </p>
                 </a>
               </li>
+              
+              
+                
+              <li class="nav-item menu-open">
+                <a href="#" class="nav-link active">
+                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <p>
+                    Profile
+                  </p>
+                </a>
+              </li>
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                  
+                  <li class="nav-item menu-open">
+                    <a href="" class="nav-link active">
+                      <i class="nav-icon fas fa-tachometer-alt"></i>
+                      <p>
+                        L'historique de congés
+                        <i class="right fas fa-angle-left"></i>
+                      </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="pageEm-historique-EN.html" class="nav-link active">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Les congés en cours </p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="pageEm-historique-ACC.html"  class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Les congés Acceptées</p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="pageEm-historique-RE.html" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Les congés Refusées</p>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
                  
             
           </nav>
@@ -321,6 +329,40 @@
         <!-- /.sidebar -->
       </aside>
 
+
+      
+<center>
+    <div class="card bg-light mb-3" style="max-width: 60rem; margin-top: 5rem; margin-left: 10rem;">
+      <div class="card-header" >
+       <h3 style="text-align: center;">Historique des demandes de congés Refusées</h3>
+      </div>
+      <!-- /.card-header -->
+      <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped" style="width: 50rem; font-size: 1.2rem;">
+          <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Date de debut</th>
+            <th>Date de fin</th>
+            <th>Cause</th>
+            <th>Statut</th>
+            <th>Supprimer</th>
+          </tr>
+          </thead>
+          <tbody id="tbody">
+          </tbody>
+        </table>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+    </div>
+    <!-- /.col -->
+    </div>
+    <!-- /.row -->
+    </div>
+    </center>
 
 
 
@@ -337,7 +379,7 @@
       <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
-    <script src="pageEm-historique.js"></script>
+    <script src="pageEm-historique-RE.js"></script>
 
     <!-- jQuery -->
     <script src="AdminLTE-3.1.0-rc/plugins/jquery/jquery.min.js"></script>

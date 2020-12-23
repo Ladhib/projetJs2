@@ -328,81 +328,39 @@
         </div>
         <!-- /.sidebar -->
       </aside>
-    
-
-
-<center>
-      <form action="" id="form1" style="width: 50rem; margin-top: 3rem;" >
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="inputGroup-sizing-default" style="width: 8rem;" >Nom</span>
-            </div>
-            <input type="text" class="form-control" id="nom" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      <center>
+        <div class="card bg-light mb-3" style="max-width: 60rem; margin-top: 5rem; margin-left: 10rem;">
+          <div class="card-header" >
+           <h3 style="text-align: center;">Historique des demandes de congés Accéptées</h3>
           </div>
-      
-          
-      <div class="input-group mb-3">
-      <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-default" style="width: 8rem;">Prenom</span>
-      </div>
-      <input type="text" class="form-control" id="prenom" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-      </div>
-      
-      
-      <div class="input-group mb-3">
-      <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-default" style="width: 8rem;" >Date de début</span>
-      </div>
-      <input type="date" onchange="cal()" id="debut"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-      </div>
-      
-      <div class="input-group mb-3">
-      <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-default" style="width: 8rem;">Date de fin</span>
-      </div>
-      <input type="date" onchange="cal()"  id="fin" >
-      </div> 
-            
-      <div class="input-group mb-3">
-      <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-default" style="width: 8rem;">Durée précise</span>
-      </div>
-      <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-      </div>
-      
-      <div class="input-group mb-3">
-      <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-default" style="width: 8rem;">Solde de congé</span>
-      </div>
-      <input type="number" class="form-control" solde aria-label="Sizing example input" placeholder="30" aria-describedby="inputGroup-sizing-default" disabled>
-      </div>
-      
-      
-      <div class="form-check form-check-inline">
-      <input  type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Maladie">
-      <label class="form-check-label" for="inlineRadio1">Maladie</label>
-      </div>
-      <div class="form-check form-check-inline">
-      <input  type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Maternité">
-      <label class="form-check-label" for="inlineRadio2">Maternité</label>
-      </div>
-      <div class="form-check form-check-inline">
-      <input  type="radio" name="inlineRadioOptions" id="inlineRadio3" value="autrecause">
-      <label class="form-check-label" for="inlineRadio3">Autre</label>
-      </div><br><br>
-      
-      <label for="autreCause">Precisez votre cause:</label><br>
-      <textarea id="autreCause" style="width: 20rem;"></textarea><br><br><br>
-      
-      <button class="btn btn-success" id="btn" onclick="envoyerDemande()" >Envoyer</button
-      </form>
-      </div>
-      </div>
-      </center>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped" style="width: 50rem; font-size: 1.2rem;">
+              <thead>
+              <tr>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Date de debut</th>
+                <th>Date de fin</th>
+                <th>Cause</th>
+                <th>Statut</th>
+                <th>Supprimer</th>
+              </tr>
+              </thead>
+              <tbody id="tbody">
+              </tbody>
+            </table>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+        </div>
+        <!-- /.col -->
+        </div>
+        <!-- /.row -->
+        </div>
+        </center>
     
-      
-      
-
 
 
 
@@ -419,7 +377,7 @@
       <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
-    <script src="pageEm-demande.js"></script>
+    <script src="pageEm-historique-ACC.js"></script>
 
     <!-- jQuery -->
     <script src="AdminLTE-3.1.0-rc/plugins/jquery/jquery.min.js"></script>
