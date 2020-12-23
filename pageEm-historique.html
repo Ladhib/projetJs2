@@ -41,7 +41,7 @@
     <!-- summernote -->
     <link rel="stylesheet" href="AdminLTE-3.1.0-rc/plugins/summernote/summernote-bs4.min.css" />
   </head>
-  <body class="hold-transition sidebar-mini layout-fixed">
+  <body class="hold-transition sidebar-mini layout-fixed" >
     <div class="wrapper">
       <!-- Navbar -->
       <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -213,82 +213,16 @@
         </ul>
       </nav>
 
-<center>
-      <div class="card bg-light mb-3" style="max-width: 35rem; margin-top: 2%;">
-        <div class="card-header"><strong>Demander un congé</strong></div>
-        <div class="card-body">
 
-
-<form action="" id="form1">
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="inputGroup-sizing-default" style="width: 8rem;" >Nom</span>
-                </div>
-                <input type="text" class="form-control" id="nom" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-              </div>
-
-              
-<div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-default" style="width: 8rem;">Prenom</span>
-    </div>
-    <input type="text" class="form-control" id="prenom" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-  </div>
-
-  
-<div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-default" style="width: 8rem;" >Date de début</span>
-    </div>
-    <input type="date" onchange="cal()" class="form-control" id="debut"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-  </div>
-
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-default" style="width: 8rem;">Date de fin</span>
-    </div>
-    <input type="date" onchange="cal()" class="form-control" id="fin" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-  </div>
-                
-<div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-default" style="width: 8rem;">Durée précise</span>
-    </div>
-    <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-  </div>
-
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-default" style="width: 8rem;">Solde de congé</span>
-    </div>
-    <input type="number" class="form-control" solde aria-label="Sizing example input" placeholder="30" aria-describedby="inputGroup-sizing-default" disabled>
-  </div>
-
-
-  <div class="form-check form-check-inline">
-    <input  type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Maladie">
-    <label class="form-check-label" for="inlineRadio1">Maladie</label>
-    </div>
-    <div class="form-check form-check-inline">
-    <input  type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Maternité">
-    <label class="form-check-label" for="inlineRadio2">Maternité</label>
-    </div>
-    <div class="form-check form-check-inline">
-    <input  type="radio" name="inlineRadioOptions" id="inlineRadio3" value="autrecause">
-    <label class="form-check-label" for="inlineRadio3">Autre</label>
-  </div><br><br>
-
-<label for="autreCause">Precisez votre cause:</label><br>
-  <textarea id="autreCause" style="width: 20rem;"></textarea><br><br><br>
-  
- <button class="btn btn-success" id="btn" onclick="envoyerDemande()" >Envoyer</button
- </form>
+      <div class="card text-center" id="card">
+        <div class="card-header">
+        </div>
+        
+            
+        </div>
+        <div class="card-footer text-muted">
         </div>
       </div>
-
-    </center>
-
-
 
 
 
@@ -383,7 +317,7 @@
       <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
-    <script src="pageEm-demande.js"></script>
+    <script src="pageEm-historique.js"></script>
 
     <!-- jQuery -->
     <script src="AdminLTE-3.1.0-rc/plugins/jquery/jquery.min.js"></script>
