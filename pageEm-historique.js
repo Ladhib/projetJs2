@@ -24,7 +24,6 @@ var app = new (function () {
         ')">Delete</button></td>';
       data += "</tr>";
     });
-    console.log(data);
     localStorage.setItem("demandes", JSON.stringify(demandes));
     document.getElementById("tbody").innerHTML = data;
   };
