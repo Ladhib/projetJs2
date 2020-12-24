@@ -32,9 +32,9 @@ function add() {
     soldeCongé: soldeCongé,
     email: email,
     password: password,
-    poste: checkbox,
+    poste: checkbox
   };
-
+console.log(checkbox);
   users.push(obj);
   localStorage.setItem("users", JSON.stringify(users));
   form.reset();

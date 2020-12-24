@@ -1,0 +1,47 @@
+body {
+    background-image: url(img3.jpg);
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    background-repeat: no-repeat;
+    padding: 15px;
+    background-position: center;
+    background-size: cover;
+    text-transform: uppercase;
+}
+form{
+    border-radius: 10px;
+    width: 40% !important;
+    margin:auto;
+    padding: 100px 0px;
+    background: rgba(0, 0, 0, 0.8);
+    padding-top: 100px;
+    
+}
+.form-control{
+    margin-bottom: 20px;
+    width: 60%!important;
+    height: 40px;
+    margin-left: 50px;
+}
+.title-form{
+    font-family: Ubuntu-Bold;
+    font-size: 28px;
+    color: #fff;
+    line-height: 1.2;
+    text-align: center;
+    text-transform: uppercase;
+    display: block;
+    padding-top: 3px;
+    padding-bottom: 20px;
+   
+}
+#label{
+    color: #fff;
+    padding-left: 50px;
+}
+#btn{
+    padding: 0px 220px;
+    font-family: Ubuntu-Bold;
+    text-transform: uppercase;
+}

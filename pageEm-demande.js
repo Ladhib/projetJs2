@@ -4,6 +4,7 @@ var durée;
 function GetDays() {
   var datefin = new Date(document.getElementById("fin").value);
   var datedebut = new Date(document.getElementById("debut").value);
+  console.log(datefin);
   return parseInt((datefin - datedebut) / (24 * 3600 * 1000));
 }
 function cal() {
@@ -11,6 +12,8 @@ function cal() {
     durée = GetDays();
   }
 }
+console.log(durée);
+
 
 function envoyerDemande() {
   var form1 = document.getElementById("form1");
