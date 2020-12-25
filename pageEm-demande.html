@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Employé-Demande congé</title>
+    <title>Employé-Demandes Acceptées</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link
@@ -212,86 +212,6 @@
           </li>
         </ul>
       </nav>
-
-<center>
-      <div class="card bg-light mb-3" style="max-width: 35rem; margin-top: 2%;">
-        <div class="card-header"><strong>Demander un congé</strong></div>
-        <div class="card-body">
-
-
-<form action="" id="form1">
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="inputGroup-sizing-default" style="width: 8rem;" >Nom</span>
-                </div>
-                <input type="text" class="form-control" id="nom" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-              </div>
-
-              
-<div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-default" style="width: 8rem;">Prenom</span>
-    </div>
-    <input type="text" class="form-control" id="prenom" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-  </div>
-
-  
- <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-default" style="width: 8rem;" >Date de début</span>
-    </div>
-    <input type="date" onchange="cal()" id="debut"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-  </div>
-
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-default" style="width: 8rem;">Date de fin</span>
-    </div>
-    <input type="date" onchange="cal()"  id="fin" >
-  </div> 
-                
-<div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-default" style="width: 8rem;">Durée précise</span>
-    </div>
-    <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-  </div>
-
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-default" style="width: 8rem;">Solde de congé</span>
-    </div>
-    <input type="number" class="form-control" solde aria-label="Sizing example input" placeholder="30" aria-describedby="inputGroup-sizing-default" disabled>
-  </div>
-
-
-  <div class="form-check form-check-inline">
-    <input  type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Maladie">
-    <label class="form-check-label" for="inlineRadio1">Maladie</label>
-    </div>
-    <div class="form-check form-check-inline">
-    <input  type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Maternité">
-    <label class="form-check-label" for="inlineRadio2">Maternité</label>
-    </div>
-    <div class="form-check form-check-inline">
-    <input  type="radio" name="inlineRadioOptions" id="inlineRadio3" value="autrecause">
-    <label class="form-check-label" for="inlineRadio3">Autre</label>
-  </div><br><br>
-
-<label for="autreCause">Precisez votre cause:</label><br>
-  <textarea id="autreCause" style="width: 20rem;"></textarea><br><br><br>
-  
- <button class="btn btn-success" id="btn" onclick="envoyerDemande()" >Envoyer</button
- </form>
-        </div>
-      </div>
-
-    </center>
-
-
-
-
-
       <!-- /.navbar -->
 
       <!-- Main Sidebar Container -->
@@ -352,13 +272,55 @@
                with font-awesome or any other icon font library -->
               
               <li class="nav-item menu-open">
-                <a href="#" class="nav-link active">
+                <a href="pageEm-demande.html" class="nav-link active">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>
-                    
+                    Demander un congé
                   </p>
                 </a>
               </li>
+              
+              
+                
+              <li class="nav-item menu-open">
+                <a href="#" class="nav-link active">
+                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <p>
+                    Profile
+                  </p>
+                </a>
+              </li>
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                  
+                  <li class="nav-item menu-open">
+                    <a href="" class="nav-link active">
+                      <i class="nav-icon fas fa-tachometer-alt"></i>
+                      <p>
+                        L'historique de congés
+                        <i class="right fas fa-angle-left"></i>
+                      </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="pageEm-historique-EN.html" class="nav-link active">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Les congés en cours </p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="pageEm-historique-ACC.html"  class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Les congés Acceptées</p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="pageEm-historique-RE.html" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Les congés Refusées</p>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
                  
             
           </nav>
@@ -366,6 +328,80 @@
         </div>
         <!-- /.sidebar -->
       </aside>
+    
+
+
+<center>
+      <form action="" id="form1" style="width: 50rem; margin-top: 3rem;" >
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default" style="width: 8rem;" >Nom</span>
+            </div>
+            <input type="text" class="form-control" id="nom" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>
+      
+          
+      <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default" style="width: 8rem;">Prenom</span>
+      </div>
+      <input type="text" class="form-control" id="prenom" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      
+      
+      <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default" style="width: 8rem;" >Date de début</span>
+      </div>
+      <input type="date" onchange="cal()" id="debut"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      
+      <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default" style="width: 8rem;">Date de fin</span>
+      </div>
+      <input type="date" onchange="cal()"  id="fin" >
+      </div> 
+            
+      <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default" style="width: 8rem;">Durée précise</span>
+      </div>
+      <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      
+      <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default" style="width: 8rem;">Solde de congé</span>
+      </div>
+      <input type="number" class="form-control" solde aria-label="Sizing example input" placeholder="30" aria-describedby="inputGroup-sizing-default" disabled>
+      </div>
+      
+      
+      <div class="form-check form-check-inline">
+      <input  type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Maladie">
+      <label class="form-check-label" for="inlineRadio1">Maladie</label>
+      </div>
+      <div class="form-check form-check-inline">
+      <input  type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Maternité">
+      <label class="form-check-label" for="inlineRadio2">Maternité</label>
+      </div>
+      <div class="form-check form-check-inline">
+      <input  type="radio" name="inlineRadioOptions" id="inlineRadio3" value="autrecause">
+      <label class="form-check-label" for="inlineRadio3">Autre</label>
+      </div><br><br>
+      
+      <label for="autreCause">Precisez votre cause:</label><br>
+      <textarea id="autreCause" style="width: 20rem;"></textarea><br><br><br>
+      
+      <button class="btn btn-success" id="btn" onclick="envoyerDemande()" >Envoyer</button
+      </form>
+      </div>
+      </div>
+      </center>
+    
+      
+      
 
 
 

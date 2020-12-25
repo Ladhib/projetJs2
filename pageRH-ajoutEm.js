@@ -28,13 +28,12 @@ function add() {
     id: users.length + 10000,
     nom: nom,
     prenom: prenom,
-    age: age,
     soldeCongé: soldeCongé,
     email: email,
     password: password,
-    poste: checkbox
+    poste: checkbox,
   };
-console.log(checkbox);
+  console.log(checkbox);
   users.push(obj);
   localStorage.setItem("users", JSON.stringify(users));
   form.reset();

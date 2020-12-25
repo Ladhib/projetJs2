@@ -1,7 +1,7 @@
 var demandes = JSON.parse(localStorage.getItem("demandes"));
 var app = new (function () {
   tbody = document.getElementById("tbody");
-  demandesFilter = demandes.filter((demande) => demande.statutDemande == "en cours");
+  demandesFilter = demandes.filter((demande) => demande.statutDemande == "Acceptée par sup");
 
   this.fetchall = () => {
     var data = "";
@@ -17,7 +17,7 @@ var app = new (function () {
       data += "<td>" + demande.durée + "</td>";
       data += "<td>" + demande.cause + "</td>";
       data +=
-        '<td><span class="badge bg-warning text-dark" style="height:1.5rem">' +
+        '<td><span class="badge bg-info text-dark" style="height:1.5rem">' +
         demande.statutDemande +
         "</span></td>";
       data +=
@@ -36,7 +36,7 @@ var app = new (function () {
 
   this.accepter = (index) => {
     const demandeFound = demandesFilter.find((demande) => demandesFilter.indexOf(demande) == index);
-    demandeFound.statutDemande = "Acceptée par sup";
+    demandeFound.statutDemande = "Acceptée par RH";
     demandes.splice(index, 1, demandeFound);
     localStorage.setItem("demandes", JSON.stringify(demandes));
   };
