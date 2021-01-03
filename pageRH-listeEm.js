@@ -18,6 +18,7 @@ var app = new (function () {
           '<td><button data-toggle="modal" type="button" class="btn btn-primary"  data-target="#exampleModal" onclick="app.edit(' +
           users.indexOf(obj) +
           ')">Edit</button></td>';
+
         data +=
           '<td><button class="btn btn-danger" onclick="app.delete(' +
           users.indexOf(obj) +
@@ -29,25 +30,32 @@ var app = new (function () {
     document.getElementById("tbody").innerHTML = data;
   };
 
-  //   this.edit = function (element) {
-  //     var el = document.getElementById("edit-todo");
-  //     el.value = users[element];
-  //     document.getElementById("edit-box");
-  //     self = this;
-  //     document.getElementById("save-edit").onsubmit = function () {
-  //       var task = el.value;
-  //       if (task) {
-  //         users.splice(element, 1, task.trim());
-  //         self.fetchall();
-  //       }
-  //     };
-  //     this.fetchall();
-  //   };
+  this.edit = function (element) {
+    const newNom = document.getElementById('newNom');
+    const newPrenom = document.getElementById('newPrenom');
+    const newAge = document.getElementById('newAge');
+    const newScongé = document.getElementById('newScongé');
+    const newEmail = document.getElementById('newEmail');
+    const newPassword = document.getElementById('newPassword');
+    users.map(e,i => {
+      
+      
+      e.nom = newNom.value;
+      e.prenom = newPrenom.value;
+      e.age = newAge.value;
+      e.SoldeCongé = newScongé.value;
+      e.email = newEmail.value;
+      e.password = newPassword.value;
 
-  this.delete = (obj) => {
-    users.splice(obj, 1);
-    this.fetchall();
-  };
-})();
+      localStorage.setItem("users", JSON.stringify(users));
+      this.fetchall();
+      }
+    );
+  }
+    this.delete = (obj) => {
+      users.splice(obj, 1);
+      this.fetchall();
+    };
+  })
 
-app.fetchall();
+  app.fetchall();
