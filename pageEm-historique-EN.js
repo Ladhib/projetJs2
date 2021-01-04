@@ -1,5 +1,6 @@
 var demandes = JSON.parse(localStorage.getItem("demandes")) || [];
 var user = JSON.parse(localStorage.getItem("user"));
+console.log(demandes);
 
 console.log(user);
 var app = new (function () {
