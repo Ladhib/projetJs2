@@ -215,7 +215,7 @@
       <!-- /.navbar -->
 
       <!-- Main Sidebar Container -->
-      <aside class="main-sidebar sidebar-dark-primary elevation-4">
+      <aside class="main-sidebar sidebar-dark-primary elevation-4" 
         <!-- Brand Logo -->
         <a href="index3.html" class="brand-link">
           <img
@@ -258,10 +258,10 @@
                 </button>
               </div>
             </div>
-          </div>
+          </div><br><br>
 
           <!-- Sidebar Menu -->
-          <nav class="mt-2">
+          <nav class="navbar ">
             <ul
               class="nav nav-pills nav-sidebar flex-column"
               data-widget="treeview"
@@ -271,25 +271,25 @@
               <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
               <li class="nav-item menu-open">
-                <a href="pageRH-listeEm.html" class="nav-link active">
+                <a href="pageRH-listeEm.html" class="nav-link active"  style="background-color: gainsboro;">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
-                  <p>
+                  <p  style="background-color: gainsboro; color:darkblue;">
                     Liste et gestion des employées
                   </p>
                 </a>
-              </li>
+              </li><br>
               <li class="nav-item menu-open">
-                <a href="pageRH-ajoutEm.html" class="nav-link active">
+                <a href="pageRH-ajoutEm.html" class="nav-link active"  style="background-color: gainsboro;">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
-                  <p>
+                  <p  style="background-color: gainsboro; color: darkblue">
                     Ajouter un employé
                   </p>
                 </a>
-              </li>
+              </li><br>
               <li class="nav-item menu-open">
-                <a href="PageRH-demandes.html" class="nav-link active">
+                <a href="PageRH-demandes.html" class="nav-link active"  style="background-color: gainsboro;">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
-                  <p>
+                  <p  style="background-color: gainsboro; color :darkblue;">
                     Les demandes de congées
                   </p>
                 </a>
@@ -302,7 +302,59 @@
         </div>
         <!-- /.sidebar -->
       </aside>
+      <div
+        class="modal fade alert-dange"
+        id="deleteModal"
+        tabindex="-1"
+        aria-labelledby="deleteModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            
+            <div class="modal-body">Voulez vous vraiment refuser cette demande ?</div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                data-dismiss="modal"
+                class="btn btn-primary"
+                onclick="app.refuser(demandesFilter.indexOf(demande))"
+              >
+                Oui
+              </button>
+              <button type="submit" class="btn btn-danger" data-dismiss="modal">Non</button>
+              
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <div
+      class="modal fade alert-dange"
+      id="AccModal"
+      tabindex="-1"
+      aria-labelledby="deleteModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          
+          <div class="modal-body">Voulez vous vraiment accepter cette demande ?</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              
+              data-dismiss="modal"
+              class="btn btn-primary"
+              onclick="app.accepter()"           >
+              Oui
+            </button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Non</button>
+            
+          </div>
+        </div>
+      </div>
+    </div>
 
 <!-- <center> -->
     <center>

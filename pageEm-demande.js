@@ -14,7 +14,6 @@ function cal() {
 }
 console.log(durée);
 
-
 function envoyerDemande() {
   var form1 = document.getElementById("form1");
 
@@ -29,6 +28,7 @@ function envoyerDemande() {
   maternité = document.getElementById("inlineRadio2");
   autre = document.getElementById("inlineRadio3");
   autrecause = document.getElementById("autreCause");
+
   if (maladie.checked == true) {
     var checkbox = document.getElementById("inlineRadio1").value;
   } else if (maternité.checked == true) {
@@ -48,9 +48,12 @@ function envoyerDemande() {
     cause: checkbox,
     statutDemande: "en cours",
   };
-
-  demandes.push(demande);
-  localStorage.setItem("demandes", JSON.stringify(demandes));
-  form1.reset();
-  console.log(userId);
+  if (user.soldeCongé >= durée) {
+    demandes.push(demande);
+    localStorage.setItem("demandes", JSON.stringify(demandes));
+    form1.reset();
+    console.log(userId);
+  } else {
+    alert("Vous avez depasser votre solde de congé");
+  }
 }

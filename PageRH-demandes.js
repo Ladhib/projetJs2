@@ -1,12 +1,16 @@
 var demandes = JSON.parse(localStorage.getItem("demandes"));
+var users = JSON.parse(localStorage.getItem("users"));
+var index;
 var app = new (function () {
   tbody = document.getElementById("tbody");
   demandesFilter = demandes.filter((demande) => demande.statutDemande == "Acceptée par sup");
 
   this.fetchall = () => {
     var data = "";
+    var idDemande;
+    var duréeDemande;
 
-    demandesFilter.forEach((demande) => {
+    demandesFilter.forEach((demande, i) => {
       data += "<tr>";
       data += "<td>" + demande.id + "</td>";
       data += "<td>" + demande.nom + "</td>";
@@ -20,31 +24,31 @@ var app = new (function () {
         '<td><span class="badge bg-info text-dark" style="height:1.5rem">' +
         demande.statutDemande +
         "</span></td>";
-      data +=
-        '<td><button type="button" class="btn btn-primary" onclick="app.accepter(' +
-        demandesFilter.indexOf(demande) +
-        ')">Accepter</button></td>';
-      data +=
-        '<td><button class="btn btn-danger" onclick="app.refuser(' +
-        demandesFilter.indexOf(demande) +
-        ')">Refuser</button></td>';
-      data += "</tr >";
+      data += `<td><button type="button" class="btn btn-primary" onclick="app.in(${i})" data-toggle="modal" data-target="#AccModal" >Accepter</button></td>`;
+      data += `<td><button type="button" class="btn btn-danger"  onclick="app.in(${i})" data-toggle="modal" data-target="#deleteModal">Refuser</button></td>`;
+      data += "</tr>";
+      idDemande = demande.id;
+      duréeDemande = demande.durée;
     });
-
     document.getElementById("tbody").innerHTML = data;
   };
-
-  this.accepter = (index) => {
-    const demandeFound = demandesFilter.find((demande) => demandesFilter.indexOf(demande) == index);
-    demandeFound.statutDemande = "Acceptée par RH";
-    demandes.splice(index, 1, demandeFound);
-    localStorage.setItem("demandes", JSON.stringify(demandes));
+  this.in = (i) => {
+    index = i;
   };
 
-  this.refuser = (index) => {
-    const demandeFound = demandesFilter.find((demande) => demandesFilter.indexOf(demande) == index);
-    demandeFound.statutDemande = "Refusée";
-    demandes.splice(index, 1, demandeFound);
+  this.accepter = () => {
+    demandes[index].statutDemande = "Acceptée par RH";
+    duréeDemande = demandes[index].durée;
+    localStorage.setItem("demandes", JSON.stringify(demandes));
+    const found = users.find((obj) => (idDemande = obj.id));
+    console.log(found);
+    console.log(duréeDemande);
+    found.soldeCongé = found.soldeCongé - duréeDemande;
+    localStorage.setItem("users", JSON.stringify(users));
+  };
+
+  this.refuser = () => {
+    demandes[index].statutDemande = "Refusée";
     localStorage.setItem("demandes", JSON.stringify(demandes));
   };
 })();
