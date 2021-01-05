@@ -22,7 +22,7 @@ var app = new (function () {
         demande.statutDemande +
         "</span></td>";
       data +=
-        '<td><button type="button" class="btn btn-primary" onclick="app.accepter(' +
+        '<td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="app.accepter(' +
         demandesFilter.indexOf(demande) +
         ')">Accepter</button></td>';
       data +=
