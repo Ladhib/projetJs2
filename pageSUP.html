@@ -81,7 +81,7 @@
 
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
-          <button type="button" class="btn btn-light"  style="color: darkred;"><strong>Se deconnecter</strong> </button>
+          <button type="button" class="btn btn-light"  style="color: darkred;"onclick="LOGOUT()"><strong>Se deconnecter</strong> </button>
 
           <!-- Messages Dropdown Menu -->
           <li class="nav-item dropdown">
@@ -1227,5 +1227,11 @@
     <script src="AdminLTE-3.1.0-rc/dist/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="AdminLTE-3.1.0-rc/dist/js/pages/dashboard.js"></script>
+    <script>
+      function LOGOUT(){
+  localStorage.removeItem("user");
+  window.location.replace("login.html")
+}  
+    </script>
   </body>
 </html>

@@ -35,12 +35,12 @@ var app = new (function () {
     document.getElementById("tbody").innerHTML = data;
   };
 
-  // this.accepter = (index) => {
-  //   const found = demandesFilter.find((demande) => demandesFilter.indexOf(demande) == index);
-  //   found.statutDemande = "Acceptée par sup";
-  //   demandesFilter.splice(index, 1, found);
-  //   localStorage.setItem("demandes", JSON.stringify(demandes));
-  // };
+  this.accepter = (index) => {
+    const found = demandesFilter.find((demande) => demandesFilter.indexOf(demande) == index);
+    found.statutDemande = "Acceptée par sup";
+    demandesFilter.splice(index, 1, found);
+    localStorage.setItem("demandes", JSON.stringify(demandes));
+  };
 
   this.refuser = (index) => {
     const found = demandesFilter.find((demande) => demandesFilter.indexOf(demande) == index);
@@ -50,3 +50,10 @@ var app = new (function () {
   };
 })();
 app.fetchall();
+
+
+//logout:
+function LOGOUT(){
+  localStorage.removeItem("user");
+  window.location.replace("login.html")
+}  

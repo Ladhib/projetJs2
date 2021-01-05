@@ -38,3 +38,8 @@ var app = new (function () {
 })();
 
 app.fetchall();
+
+function LOGOUT(){
+  localStorage.removeItem("user");
+  window.location.replace("login.html")
+}  

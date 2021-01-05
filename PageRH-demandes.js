@@ -4,11 +4,11 @@ var index;
 var app = new (function () {
   tbody = document.getElementById("tbody");
   demandesFilter = demandes.filter((demande) => demande.statutDemande == "Acceptée par sup");
-
+  var idDemande;
+  var duréeDemande;
   this.fetchall = () => {
     var data = "";
-    var idDemande;
-    var duréeDemande;
+    
 
     demandesFilter.forEach((demande, i) => {
       data += "<tr>";
@@ -27,9 +27,7 @@ var app = new (function () {
       data += `<td><button type="button" class="btn btn-primary" onclick="app.in(${i})" data-toggle="modal" data-target="#AccModal" >Accepter</button></td>`;
       data += `<td><button type="button" class="btn btn-danger"  onclick="app.in(${i})" data-toggle="modal" data-target="#deleteModal">Refuser</button></td>`;
       data += "</tr>";
-      idDemande = demande.id;
-      duréeDemande = demande.durée;
-      i++;
+    
     });
     document.getElementById("tbody").innerHTML = data;
   };
@@ -47,13 +45,15 @@ var app = new (function () {
     );
     demandes[ind].statutDemande = "Acceptée par RH";
     // console.log(demandes[index].statutDemande);
-    duréeDemande = demandesFilter[index].durée;
+    duréeDemande= 
+    // idDemande=demandesFilter[index].id
     localStorage.setItem("demandes", JSON.stringify(demandes));
-    // console.log(duréeDemande);
-    const found = users.find((obj) => (idDemande = obj.id));
-    found.soldeCongé = found.soldeCongé - duréeDemande;
+    console.log(duréeDemande);
+    const found = users.find((obj) => (demandesFilter[index].id == obj.id));
+    found.soldeCongé = found.soldeCongé - demandesFilter[index].durée;
     console.log(found.soldeCongé);
     localStorage.setItem("users", JSON.stringify(users));
+    
   };
 
   this.refuser = () => {
@@ -62,3 +62,8 @@ var app = new (function () {
   };
 })();
 app.fetchall();
+
+function LOGOUT(){
+  localStorage.removeItem("user");
+  window.location.replace("login.html")
+}  

@@ -57,3 +57,7 @@ function envoyerDemande() {
     alert("Vous avez depasser votre solde de congé");
   }
 }
+function LOGOUT(){
+  localStorage.removeItem("user");
+  window.location.replace("login.html")
+}  

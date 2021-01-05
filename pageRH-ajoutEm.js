@@ -38,3 +38,8 @@ function add() {
   localStorage.setItem("users", JSON.stringify(users));
   form.reset();
 }
+
+function LOGOUT(){
+  localStorage.removeItem("user");
+  window.location.replace("login.html")
+}  

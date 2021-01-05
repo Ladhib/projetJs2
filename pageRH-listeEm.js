@@ -59,3 +59,9 @@ var app = new (function () {
   })
 
   app.fetchall();
+  
+//logout:
+function LOGOUT(){
+  localStorage.removeItem("user");
+  window.location.replace("login.html")
+}  
