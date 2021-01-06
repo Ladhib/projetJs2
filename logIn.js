@@ -18,9 +18,10 @@ function seConnecter() {
         localStorage.setItem("user", JSON.stringify(utlisateur));
         window.location.href = "pageRH.html";
       }
-    } else if (email == "ressourcesHumaines@gmail.com" && password == "Ressources00") {
-      localStorage.setItem("user", JSON.stringify(utlisateur));
-      window.location.href = "pageRH.html";
     }
+    //  else if (email == "ressourcesHumaines@gmail.com" && password == "Ressources00") {
+    //   localStorage.setItem("user", JSON.stringify(utlisateur));
+    //   window.location.href = "pageRH.html";
+    // }
   } else alert("remplissez tous les champs!");
 }

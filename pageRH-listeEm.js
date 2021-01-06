@@ -65,6 +65,7 @@ var app = new (function () {
       nom: newNom,
       prenom: newPrenom,
       age: newAge,
+      email:newEmail,
       soldeCongé: soldee,
       password: newPassword,
       poste: checkbox,

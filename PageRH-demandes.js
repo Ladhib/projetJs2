@@ -3,7 +3,7 @@ var users = JSON.parse(localStorage.getItem("users"));
 var index;
 var app = new (function () {
   tbody = document.getElementById("tbody");
-  demandesFilter = demandes.filter((demande) => demande.statutDemande == "Acceptée par sup");
+  demandesFilter = demandes.filter((demande) => demande.statutDemande == "Acceptée par SUP");
   var idDemande;
   var duréeDemande;
   this.fetchall = () => {
