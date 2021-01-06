@@ -8,6 +8,10 @@
   <title>page-SUP Demandes</title>
 
   <!-- Google Font: Source Sans Pro -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
@@ -64,7 +68,8 @@
 
       <!-- Right navbar links -->
       <ul class="navbar-nav ml-auto">
-        <button type="button" class="btn btn-light"  style="color: darkred;" onclick="LOGOUT()"><strong>Se deconnecter</strong> </button>
+        <button type="button" class="btn btn-light" style="color: darkred;" onclick="LOGOUT()"><strong>Se
+            deconnecter</strong> </button>
 
         <!-- Messages Dropdown Menu -->
         <li class="nav-item dropdown">
@@ -255,8 +260,11 @@
       </div>
   </div>
   </center>
+  <!-- Button trigger modal -->
+
+
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -264,16 +272,35 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+        Voulez-vous vraiment accepter cette demande?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="app.accepter()">Oui</button>
       </div>
     </div>
   </div>
 </div>
-<script src="pageSUP-Demandes.js"></script>
+<!-- Modal2 -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Voulez vous vraiment refuser cette demande?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"onclick="app.refuser()">Oui</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="pageSUP-Demandes.js"></script>
   <!-- Content Wrapper. Contains page content -->
 
   <!-- /.content-wrapper -->
@@ -283,10 +310,10 @@
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->
-  
+
   <!-- ./wrapper -->
-  
-  
+
+
   <!-- jQuery -->
   <script src="AdminLTE-3.1.0-rc/plugins/jquery/jquery.min.js"></script>
   <!-- jQuery UI 1.11.4 -->
@@ -296,13 +323,20 @@
     $.widget.bridge("uibutton", $.ui.button);
   </script>
 
- </div>
-</div>
+  </div>
+  </div>
 
-</center>
-
-
-      <!-- Content Wrapper. Contains page content -->
+  </center>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+    integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+    integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+    crossorigin="anonymous"></script>
+  <!-- Content Wrapper. Contains page content -->
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -325,7 +359,7 @@
             });
           } );
   </script> -->
-  
+
 </body>
 
 </html>

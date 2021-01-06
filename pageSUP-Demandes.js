@@ -1,6 +1,6 @@
 var demandes = JSON.parse(localStorage.getItem("demandes"));
 var demandesFilter = [];
-
+var index;
 var app = new (function () {
   console.log(demandesFilter);
 
@@ -8,7 +8,7 @@ var app = new (function () {
     var data = "";
     demandesFilter = demandes.filter((demande) => demande.statutDemande == "en cours");
 
-    demandesFilter.forEach((demande) => {
+    demandesFilter.forEach((demande, i) => {
       data += "<tr>";
       data += "<td>" + demande.id + "</td>";
       data += "<td>" + demande.nom + "</td>";
@@ -21,39 +21,48 @@ var app = new (function () {
         '<td><span class="badge bg-warning text-dark" style="height:1.5rem">' +
         demande.statutDemande +
         "</span></td>";
-      data +=
-        '<td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="app.accepter(' +
-        demandesFilter.indexOf(demande) +
-        ')">Accepter</button></td>';
-      data +=
-        '<td><button class="btn btn-danger" onclick="app.refuser(' +
-        demandesFilter.indexOf(demande) +
-        ')">Refuser</button></td>';
-      data += "</tr >";
+        data += `<td><button type="button" class="btn btn-primary" onclick="app.in(${i})" data-bs-toggle="modal" data-bs-target="#exampleModal1" >Accepter</button></td>`;
+
+        data += `<td><button type="button" class="btn btn-danger"  onclick="app.in(${i})" data-bs-toggle="modal" data-bs-target="#exampleModal2">Refuser</button></td>`;
+        data += "</tr >";
     });
 
     document.getElementById("tbody").innerHTML = data;
   };
-
-  this.accepter = (index) => {
-    const found = demandesFilter.find((demande) => demandesFilter.indexOf(demande) == index);
-    found.statutDemande = "Acceptée par sup";
-    demandesFilter.splice(index, 1, found);
+  this.in = (i) => {
+    console.log(i);
+    index = i;
+  };
+  this.accepter = () => {
+    ind = demandes.findIndex(
+      (x) =>
+        x.id == demandesFilter[index].id &&
+        x.dateDebut == demandesFilter[index].dateDebut &&
+        x.dateFin == demandesFilter[index].dateFin &&
+        x.statutDemande == demandesFilter[index].statutDemande
+    );
+    demandes[ind].statutDemande = "Acceptée par SUP";
     localStorage.setItem("demandes", JSON.stringify(demandes));
   };
 
-  this.refuser = (index) => {
-    const found = demandesFilter.find((demande) => demandesFilter.indexOf(demande) == index);
-    found.statutDemande = "Refusée";
-    demandesFilter.splice(index, 1, found);
+  this.refuser = () => {
+    ind = demandes.findIndex(
+      (x) =>
+        x.id == demandesFilter[index].id &&
+        x.dateDebut == demandesFilter[index].dateDebut &&
+        x.dateFin == demandesFilter[index].dateFin &&
+        x.statutDemande == demandesFilter[index].statutDemande
+    );
+    demandes[ind].statutDemande = "Refusée";
     localStorage.setItem("demandes", JSON.stringify(demandes));
   };
+  
 })();
 app.fetchall();
 
 
 //logout:
-function LOGOUT(){
+function LOGOUT() {
   localStorage.removeItem("user");
   window.location.replace("login.html")
 }  

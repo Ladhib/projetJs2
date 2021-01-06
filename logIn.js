@@ -1,10 +1,11 @@
 var users = JSON.parse(localStorage.getItem("users"));
 
+
 function seConnecter() {
   var email = document.getElementById("email").value;
   var password = document.getElementById("password").value;
 
-  if (email != "" && password != "") {
+  if (email!=undefined && password!=undefined ) {
     const utlisateur = users.find((element) => element.email == email && element.password == password);
 
     if (utlisateur != undefined) {
@@ -23,6 +24,7 @@ function seConnecter() {
           
         }
     
-    } else alert("email or password invalid! try again or sign up");
-  } else alert("remplissez tous les champs!");
+    } 
+  } 
+  else alert("remplissez tous les champs!");
 }

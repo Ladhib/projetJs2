@@ -1,10 +1,11 @@
 var users = JSON.parse(localStorage.getItem("users")) || [];
+var index;
 var app = new (function () {
   this.tbody = document.getElementById("tbody");
   this.fetchall = () => {
     var data = "";
     if (users.length > 0) {
-      users.forEach((obj) => {
+      users.forEach((obj,i) => {
         data += "<tr>";
         data += "<td>" + obj.nom + "</td>";
         data += "<td>" + obj.prenom + "</td>";
@@ -15,9 +16,7 @@ var app = new (function () {
         data += "<td>" + obj.password + "</td>";
         data += "<td>" + obj.poste + "</td>";
         data +=
-          '<td><button data-toggle="modal" type="button" class="btn btn-primary"  data-target="#exampleModal" onclick="app.edit(' +
-          users.indexOf(obj) +
-          ')">Edit</button></td>';
+         `<td><button data-toggle="modal" type="button" class="btn btn-primary"  data-target="#exampleModal" onclick="app.in(${i})">Edit</button></td>`;
 
         data +=
           '<td><button class="btn btn-danger" onclick="app.delete(' +
@@ -30,28 +29,52 @@ var app = new (function () {
     document.getElementById("tbody").innerHTML = data;
   };
 
-  this.edit = function (element) {
-    const newNom = document.getElementById('newNom');
-    const newPrenom = document.getElementById('newPrenom');
-    const newAge = document.getElementById('newAge');
-    const newScongé = document.getElementById('newScongé');
-    const newEmail = document.getElementById('newEmail');
-    const newPassword = document.getElementById('newPassword');
-    users.map(e,i => {
-      
-      
-      e.nom = newNom.value;
-      e.prenom = newPrenom.value;
-      e.age = newAge.value;
-      e.SoldeCongé = newScongé.value;
-      e.email = newEmail.value;
-      e.password = newPassword.value;
 
+  this.in = (i) => {
+    console.log(i);
+    index = i;
+    
+  };
+
+
+  this.edit = function (element) {
+    const newNom = document.getElementById('newNom').value;
+    const newPrenom = document.getElementById('newPrenom').value;
+    const newAge = document.getElementById('newAge').value;
+    const newScongé = document.getElementById('newScongé').value;
+    const newEmail = document.getElementById('newEmail').value;
+    const newPassword = document.getElementById('newPassword').value;
+    var checkbox;
+
+  EM = document.getElementById("inlineRadio1");
+  SUP = document.getElementById("inlineRadio2");
+  RH = document.getElementById("inlineRadio3");
+
+  if (EM.checked == true) {
+    var checkbox = document.getElementById("inlineRadio1").value;
+  } else if (SUP.checked == true) {
+    var checkbox = document.getElementById("inlineRadio2").value;
+  } else if (RH.checked == true) {
+    var checkbox = document.getElementById("inlineRadio3").value;
+  }
+  var soldee=users[index].soldeCongé
+  console.log(soldee);
+    var obj={
+      nom:newNom,
+      prenom:newPrenom,
+      age:newAge,
+      soldeCongé: soldee,
+      email:newEmail,
+      password:newPassword,
+      poste:checkbox
+    }
+  
+      users.splice(index,1,obj)
       localStorage.setItem("users", JSON.stringify(users));
       this.fetchall();
       }
-    );
-  }
+    
+  
     this.delete = (obj) => {
       users.splice(obj, 1);
       this.fetchall();

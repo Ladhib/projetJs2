@@ -57,9 +57,18 @@ var app = new (function () {
   };
 
   this.refuser = () => {
-    demandes[index].statutDemande = "Refusée";
+    ind = demandes.findIndex(
+      (x) =>
+        x.id == demandesFilter[index].id &&
+        x.dateDebut == demandesFilter[index].dateDebut &&
+        x.dateFin == demandesFilter[index].dateFin &&
+        x.statutDemande == demandesFilter[index].statutDemande
+    );
+    demandes[ind].statutDemande = "Refusée";
     localStorage.setItem("demandes", JSON.stringify(demandes));
   };
+   
+  
 })();
 app.fetchall();
 

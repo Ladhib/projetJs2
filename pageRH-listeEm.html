@@ -267,15 +267,15 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Message</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h5 class="modal-title" id="exampleModalLabel">Modifier vos données:</h5>
+            
           </div>
           <div class="modal-body">
             <center>
               <div class="card bg-light mb-3" style="max-width: 40rem; margin-top: 2rem;">
-                <div class="card-header"><strong> Modifier</strong></div>
+                <div class="card-header"><strong> Modification</strong></div>
                 <div class="card-body">
-                  <form action="" style="width: 500px;" id="form">
+                  <form action="" style="width: 400px;" id="form">
                     <div class="input-group mb-3">
                       <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-default">Nom</span>
@@ -286,7 +286,7 @@
 
                     <div class="input-group mb-3">
                       <div class="input-group-prepend">
-                        <span class="input-group-text" id="newPrenom">Prenom</span>
+                        <span class="input-group-text" id="inputGroup-sizing-default">Prenom</span>
                       </div>
                       <input type="text" id="newPrenom" class="form-control" aria-label="Sizing example input"
                         aria-describedby="inputGroup-sizing-default">
@@ -305,7 +305,7 @@
                         <span class="input-group-text" id="inputGroup-sizing-default">Solde de congé</span>
                       </div>
                       <input type="number" id="newScongé" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default">
+                        aria-describedby="inputGroup-sizing-default" disabled>
                     </div>
 
                     <div class="input-group mb-3">
@@ -346,7 +346,7 @@
             </center>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             <button type="button" class="btn btn-primary"onclick="app.edit()">Save changes</button>
           </div>
         </div>
