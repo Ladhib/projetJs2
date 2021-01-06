@@ -37,7 +37,8 @@ var app = new (function () {
 })();
 
 app.fetchall();
-function LOGOUT(){
+
+function LOGOUT() {
   localStorage.removeItem("user");
-  window.location.replace("login.html")
-}  
+  window.location.replace("login.html");
+}

@@ -41,7 +41,6 @@ var app = new (function () {
     const newNom = document.getElementById('newNom').value;
     const newPrenom = document.getElementById('newPrenom').value;
     const newAge = document.getElementById('newAge').value;
-    const newScongé = document.getElementById('newScongé').value;
     const newEmail = document.getElementById('newEmail').value;
     const newPassword = document.getElementById('newPassword').value;
     var checkbox;
@@ -58,8 +57,10 @@ var app = new (function () {
     var checkbox = document.getElementById("inlineRadio3").value;
   }
   var soldee=users[index].soldeCongé
+  var idUser=users[index].id
   console.log(soldee);
     var obj={
+      id: idUser,
       nom:newNom,
       prenom:newPrenom,
       age:newAge,
@@ -81,10 +82,8 @@ var app = new (function () {
     };
   })
 
-  app.fetchall();
-  
 //logout:
-function LOGOUT(){
+function LOGOUT() {
   localStorage.removeItem("user");
-  window.location.replace("login.html")
-}  
+  window.location.replace("login.html");
+}
