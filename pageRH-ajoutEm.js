@@ -57,7 +57,7 @@ function add() {
   } else if (RH.checked == true) {
     var checkbox = document.getElementById("inlineRadio3").value;
   }
-  if(nom!=""&&prenom!=""&&soldeCongé!=""&&age!=""&&checkbox==true&&ValidateEmail(email) && Validatepassword(password)){
+  if(nom!=""&&prenom!=""&&soldeCongé!=""&&age!=""&&(EM.checked==true||SUP.checked == true||RH.checked == true)&&ValidateEmail(email) && Validatepassword(password)){
 
 
   var obj = {
