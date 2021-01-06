@@ -20,8 +20,7 @@ var app = new (function () {
         data += "<td>" + obj.poste + "</td>";
         data += `<td><button data-toggle="modal" type="button" class="btn btn-primary"  data-target="#exampleModal" onclick="app.in(${i})">Edit</button></td>`;
 
-        data +=
-          `<td><button class="btn btn-danger" data-toggle="modal" data-target="#exampleModal2"onclick="app.in(${i})">Delete</button></td>`;
+        data += `<td><button class="btn btn-danger" data-toggle="modal" data-target="#exampleModal2"onclick="app.in(${i})">Delete</button></td>`;
         data += "</tr >";
       });
     }
@@ -32,25 +31,24 @@ var app = new (function () {
   // this.fetchall();
   this.in = (i) => {
     index = i;
-    console.log(index);
     const newNom = (document.getElementById("newNom").value = users[index].nom);
-    const newPrenom = (document.getElementById("newPrenom").value=users[index].prenom);
-    const newAge = (document.getElementById("newAge").value);
-    const newEmail = (document.getElementById("newEmail").value);
-    const newPassword = (document.getElementById("newPassword").value);
+    const newPrenom = (document.getElementById("newPrenom").value = users[index].prenom);
+    const newAge = (document.getElementById("newAge").value = users[index].age);
+    const newEmail = (document.getElementById("newEmail").value = users[index].email);
+    const newPassword = (document.getElementById("newPassword").value = users[index].password);
   };
 
   this.edit = function () {
-    const newNom = (document.getElementById("newNom").value = users[index].nom);
-    const newPrenom = document.getElementById("newPrenom").value=users[index].prenom;
-    const newAge = document.getElementById("newAge").value=users[index].age;
-    const newEmail = document.getElementById("newEmail").value=users[index].email;
-    const newPassword = document.getElementById("newPassword").value=users[index].password;
+    const newNom = document.getElementById("newNom").value;
+    const newPrenom = document.getElementById("newPrenom").value;
+    const newAge = document.getElementById("newAge").value;
+    const newEmail = document.getElementById("newEmail").value;
+    const newPassword = document.getElementById("newPassword").value;
     var checkbox;
-console.log("users"+users[index].nom);
-  EM = document.getElementById("inlineRadio1");
-  SUP = document.getElementById("inlineRadio2");
-  RH = document.getElementById("inlineRadio3");
+    console.log("users" + users[index].nom);
+    EM = document.getElementById("inlineRadio1");
+    SUP = document.getElementById("inlineRadio2");
+    RH = document.getElementById("inlineRadio3");
 
     if (EM.checked == true) {
       var checkbox = document.getElementById("inlineRadio1").value;
@@ -68,19 +66,18 @@ console.log("users"+users[index].nom);
       prenom: newPrenom,
       age: newAge,
       soldeCongé: soldee,
-      password:newPassword,
-      poste:checkbox
-    }
-  
-      users.splice(index,1,obj)
-      localStorage.setItem("users", JSON.stringify(users));
-      this.fetchall();
-      }
-    
-  
-    this.delete = () => {
-      users.splice(index, 1);
-      this.fetchall();
+      password: newPassword,
+      poste: checkbox,
     };
-  })
+
+    users.splice(index, 1, obj);
+    localStorage.setItem("users", JSON.stringify(users));
+    this.fetchall();
+  };
+
+  this.delete = () => {
+    users.splice(index, 1);
+    this.fetchall();
+  };
+})();
 app.fetchall();
