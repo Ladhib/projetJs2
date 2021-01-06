@@ -33,14 +33,19 @@ var app = new (function () {
   this.in = (i) => {
     index = i;
     console.log(index);
+    const newNom = (document.getElementById("newNom").value = users[index].nom);
+    const newPrenom = (document.getElementById("newPrenom").value=users[index].prenom);
+    const newAge = (document.getElementById("newAge").value);
+    const newEmail = (document.getElementById("newEmail").value);
+    const newPassword = (document.getElementById("newPassword").value);
   };
 
   this.edit = function () {
     const newNom = (document.getElementById("newNom").value = users[index].nom);
-    const newPrenom = document.getElementById("newPrenom").value;
-    const newAge = document.getElementById("newAge").value;
-    const newEmail = document.getElementById("newEmail").value;
-    const newPassword = document.getElementById("newPassword").value;
+    const newPrenom = document.getElementById("newPrenom").value=users[index].prenom;
+    const newAge = document.getElementById("newAge").value=users[index].age;
+    const newEmail = document.getElementById("newEmail").value=users[index].email;
+    const newPassword = document.getElementById("newPassword").value=users[index].password;
     var checkbox;
 console.log("users"+users[index].nom);
   EM = document.getElementById("inlineRadio1");
