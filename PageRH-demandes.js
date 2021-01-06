@@ -29,21 +29,30 @@ var app = new (function () {
       data += "</tr>";
       idDemande = demande.id;
       duréeDemande = demande.durée;
+      i++;
     });
     document.getElementById("tbody").innerHTML = data;
   };
   this.in = (i) => {
+    console.log(i);
     index = i;
   };
-
   this.accepter = () => {
-    demandes[index].statutDemande = "Acceptée par RH";
-    duréeDemande = demandes[index].durée;
+    ind = demandes.findIndex(
+      (x) =>
+        x.id == demandesFilter[index].id &&
+        x.dateDebut == demandesFilter[index].dateDebut &&
+        x.dateFin == demandesFilter[index].dateFin &&
+        x.statutDemande == demandesFilter[index].statutDemande
+    );
+    demandes[ind].statutDemande = "Acceptée par RH";
+    // console.log(demandes[index].statutDemande);
+    duréeDemande = demandesFilter[index].durée;
     localStorage.setItem("demandes", JSON.stringify(demandes));
+    // console.log(duréeDemande);
     const found = users.find((obj) => (idDemande = obj.id));
-    console.log(found);
-    console.log(duréeDemande);
     found.soldeCongé = found.soldeCongé - duréeDemande;
+    console.log(found.soldeCongé);
     localStorage.setItem("users", JSON.stringify(users));
   };
 
