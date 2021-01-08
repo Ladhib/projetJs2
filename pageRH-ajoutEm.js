@@ -8,8 +8,6 @@ function ValidateEmail(email) {
     document.getElementById("email").focus();
     return true;
   } else {
-   
-
     document.form.Email.focus();
     return false;
   }
@@ -25,14 +23,14 @@ function Validatepassword(password) {
     // console.log("ok");
     // const errorPassword = document.getElementById("passwordError");
     // errorPassword.innerHTML =
-     alert ("password must contain at least: 8 characters,1 number,1 lowercase character,1 uppercase character")
+    alert(
+      "password must contain at least: 8 characters,1 number,1 lowercase character,1 uppercase character"
+    );
     // errorPassword.style.color = "red";
     // document.getElementById("password").focus();
     return false;
   }
 }
-
-
 
 function add() {
   var form = document.getElementById("form");
@@ -57,27 +55,29 @@ function add() {
   } else if (RH.checked == true) {
     var checkbox = document.getElementById("inlineRadio3").value;
   }
-  if(nom!=""&&prenom!=""&&soldeCongé!=""&&age!=""&&checkbox==true&&ValidateEmail(email) && Validatepassword(password)){
-
-
-  var obj = {
-    id: users.length + 10000,
-    nom: nom,
-    prenom: prenom,
-    age:age,
-    soldeCongé: soldeCongé,
-    email: email,
-    password: password,
-    poste: checkbox,
-  };
-  console.log(checkbox);
-  users.push(obj);
-  localStorage.setItem("users", JSON.stringify(users));
-  form.reset();
+  if (
+    (nom != "" && prenom != "" && soldeCongé != "" && age != "" && EM.checked == true) ||
+    SUP.checked == true ||
+    (RH.checked == true && ValidateEmail(email) && Validatepassword(password))
+  ) {
+    var obj = {
+      id: users.length + 10000,
+      nom: nom,
+      prenom: prenom,
+      age: age,
+      soldeCongé: soldeCongé,
+      email: email,
+      password: password,
+      poste: checkbox,
+    };
+    console.log(checkbox);
+    users.push(obj);
+    localStorage.setItem("users", JSON.stringify(users));
+    form.reset();
+  }
 }
-}
 
-function LOGOUT(){
+function LOGOUT() {
   localStorage.removeItem("user");
-  window.location.replace("login.html")
-}  
+  window.location.replace("login.html");
+}

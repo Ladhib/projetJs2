@@ -34,16 +34,21 @@ var app = new (function () {
   // this.fetchall();
   this.in = (i) => {
     index = i;
-    console.log(index);
+    const newNom = (document.getElementById("newNom").value = users[index].nom);
+    const newPrenom = (document.getElementById("newPrenom").value = users[index].prenom);
+    const newAge = (document.getElementById("newAge").value = users[index].age);
+    const newEmail = (document.getElementById("newEmail").value = users[index].email);
+    const newPassword = (document.getElementById("newPassword").value = users[index].password);
   };
 
   this.edit = function () {
-    const newNom = (document.getElementById("newNom").value = users[index].nom);
+    const newNom = document.getElementById("newNom").value;
     const newPrenom = document.getElementById("newPrenom").value;
     const newAge = document.getElementById("newAge").value;
     const newEmail = document.getElementById("newEmail").value;
     const newPassword = document.getElementById("newPassword").value;
     var checkbox;
+    console.log(index);
 
     EM = document.getElementById("inlineRadio1");
     SUP = document.getElementById("inlineRadio2");
