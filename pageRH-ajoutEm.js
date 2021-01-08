@@ -56,9 +56,13 @@ function add() {
     var checkbox = document.getElementById("inlineRadio3").value;
   }
   if (
-    (nom != "" && prenom != "" && soldeCongé != "" && age != "" && EM.checked == true) ||
-    SUP.checked == true ||
-    (RH.checked == true && ValidateEmail(email) && Validatepassword(password))
+    nom != "" &&
+    prenom != "" &&
+    soldeCongé != "" &&
+    age != "" &&
+    (EM.checked == true || SUP.checked == true || RH.checked == true) &&
+    ValidateEmail(email) &&
+    Validatepassword(password)
   ) {
     var obj = {
       id: users.length + 10000,

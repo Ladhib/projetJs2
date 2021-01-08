@@ -20,10 +20,7 @@ var app = new (function () {
         data += "<td>" + obj.poste + "</td>";
         data += `<td><button data-toggle="modal" type="button" class="btn btn-primary"  data-target="#exampleModal" onclick="app.in(${i})">Edit</button></td>`;
 
-        data +=
-          '<td><button class="btn btn-danger" onclick="app.delete(' +
-          users.indexOf(obj) +
-          ')">Delete</button></td>';
+        data += `<td><button class="btn btn-danger" data-toggle="modal" data-target="#exampleModal2"onclick="app.in(${i})">Delete</button></td>`;
         data += "</tr >";
       });
     }
@@ -48,8 +45,7 @@ var app = new (function () {
     const newEmail = document.getElementById("newEmail").value;
     const newPassword = document.getElementById("newPassword").value;
     var checkbox;
-    console.log(index);
-
+    console.log("users" + users[index].nom);
     EM = document.getElementById("inlineRadio1");
     SUP = document.getElementById("inlineRadio2");
     RH = document.getElementById("inlineRadio3");
@@ -70,7 +66,6 @@ var app = new (function () {
       prenom: newPrenom,
       age: newAge,
       soldeCongé: soldee,
-      email: newEmail,
       password: newPassword,
       poste: checkbox,
     };
@@ -80,14 +75,9 @@ var app = new (function () {
     this.fetchall();
   };
 
-  this.delete = (obj) => {
-    users.splice(obj, 1);
+  this.delete = () => {
+    users.splice(index, 1);
     this.fetchall();
   };
 })();
 app.fetchall();
-//logout:
-function LOGOUT() {
-  localStorage.removeItem("user");
-  window.location.replace("login.html");
-}
