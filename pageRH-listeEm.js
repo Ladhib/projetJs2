@@ -31,15 +31,13 @@ var app = new (function () {
   };
 
   this.edit = function (element) {
-    const newNom = document.getElementById('newNom');
-    const newPrenom = document.getElementById('newPrenom');
-    const newAge = document.getElementById('newAge');
-    const newScongé = document.getElementById('newScongé');
-    const newEmail = document.getElementById('newEmail');
-    const newPassword = document.getElementById('newPassword');
-    users.map(e,i => {
-      
-      
+    const newNom = document.getElementById("newNom");
+    const newPrenom = document.getElementById("newPrenom");
+    const newAge = document.getElementById("newAge");
+    const newScongé = document.getElementById("newScongé");
+    const newEmail = document.getElementById("newEmail");
+    const newPassword = document.getElementById("newPassword");
+    users.map(e, (i) => {
       e.nom = newNom.value;
       e.prenom = newPrenom.value;
       e.age = newAge.value;
@@ -49,19 +47,18 @@ var app = new (function () {
 
       localStorage.setItem("users", JSON.stringify(users));
       this.fetchall();
-      }
-    );
-  }
-    this.delete = (obj) => {
-      users.splice(obj, 1);
-      this.fetchall();
-    };
-  })
+    });
+  };
+  this.delete = (obj) => {
+    users.splice(obj, 1);
+    this.fetchall();
+  };
+})();
 
-  app.fetchall();
-  
+app.fetchall();
+
 //logout:
-function LOGOUT(){
+function LOGOUT() {
   localStorage.removeItem("user");
-  window.location.replace("login.html")
-}  
+  window.location.replace("login.html");
+}
