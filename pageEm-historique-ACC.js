@@ -1,6 +1,6 @@
 var demandes = JSON.parse(localStorage.getItem("demandes")) || [];
 var user = JSON.parse(localStorage.getItem("user"));
-
+var index;
 console.log(user);
 var app = new (function () {
   tbody = document.getElementById("tbody");
@@ -11,7 +11,7 @@ var app = new (function () {
       (demande) => demande.id == user.id && demande.statutDemande == "Acceptée par RH"
     );
 
-    demandesFiltrer.forEach((demande) => {
+    demandesFiltrer.forEach((demande, i) => {
       data += "<tr>";
       data += "<td>" + demande.nom + "</td>";
       data += "<td>" + demande.prenom + "</td>";
@@ -19,19 +19,27 @@ var app = new (function () {
       data += "<td>" + demande.dateFin + "</td>";
       data += "<td>" + demande.cause + "</td>";
       data += "<td>" + demande.statutDemande + "</td>";
-
-      data +=
-        '<td><button class="btn btn-danger" onclick="app.delete(' +
-        demandesFiltrer.indexOf(demande) +
-        ')">Delete</button></td>';
+      data += `<td><button data-toggle="modal" class="btn btn-danger"  data-target="#exampleModal" onclick="app.in(${i})">Delete</button></td>`;
       data += "</tr>";
     });
     localStorage.setItem("demandes", JSON.stringify(demandes));
     document.getElementById("tbody").innerHTML = data;
   };
 
-  this.delete = (demande) => {
-    demandes.splice(demande, 1);
+  this.in = (i) => {
+    index = i;
+    console.log(index);
+  };
+
+  this.delete = () => {
+    var found = demandes.findIndex(
+      (element) =>
+        element.id == demandesFiltrer[index].id &&
+        element.dateDebut == demandesFiltrer[index].dateDebut &&
+        element.dateFin == demandesFiltrer[index].dateFin
+    );
+
+    demandes.splice(found, 1);
     this.fetchall();
   };
 })();

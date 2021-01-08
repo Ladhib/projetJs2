@@ -13,6 +13,11 @@ function cal() {
   }
 }
 console.log(durée);
+function remplir() {
+  var nom = (document.getElementById("nom").value = user.nom);
+  var prenom = (document.getElementById("prenom").value = user.prenom);
+}
+remplir();
 
 function envoyerDemande() {
   var form1 = document.getElementById("form1");
@@ -57,7 +62,7 @@ function envoyerDemande() {
     alert("Vous avez depasser votre solde de congé");
   }
 }
-function LOGOUT(){
+function LOGOUT() {
   localStorage.removeItem("user");
-  window.location.replace("login.html")
-}  
+  window.location.replace("login.html");
+}

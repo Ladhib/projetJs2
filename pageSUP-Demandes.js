@@ -10,7 +10,6 @@ var app = new (function () {
 
     demandesFilter.forEach((demande, i) => {
       data += "<tr>";
-      data += "<td>" + demande.id + "</td>";
       data += "<td>" + demande.nom + "</td>";
       data += "<td>" + demande.prenom + "</td>";
       data += "<td>" + demande.dateDebut + "</td>";
@@ -21,10 +20,10 @@ var app = new (function () {
         '<td><span class="badge bg-warning text-dark" style="height:1.5rem">' +
         demande.statutDemande +
         "</span></td>";
-        data += `<td><button type="button" class="btn btn-primary" onclick="app.in(${i})" data-bs-toggle="modal" data-bs-target="#exampleModal1" >Accepter</button></td>`;
+      data += `<td><button type="button" class="btn btn-primary" onclick="app.in(${i})" data-bs-toggle="modal" data-bs-target="#exampleModal1" >Accepter</button></td>`;
 
-        data += `<td><button type="button" class="btn btn-danger"  onclick="app.in(${i})" data-bs-toggle="modal" data-bs-target="#exampleModal2">Refuser</button></td>`;
-        data += "</tr >";
+      data += `<td><button type="button" class="btn btn-danger"  onclick="app.in(${i})" data-bs-toggle="modal" data-bs-target="#exampleModal2">Refuser</button></td>`;
+      data += "</tr >";
     });
 
     document.getElementById("tbody").innerHTML = data;
@@ -56,13 +55,11 @@ var app = new (function () {
     demandes[ind].statutDemande = "Refusée";
     localStorage.setItem("demandes", JSON.stringify(demandes));
   };
-  
 })();
 app.fetchall();
-
 
 //logout:
 function LOGOUT() {
   localStorage.removeItem("user");
-  window.location.replace("login.html")
-}  
+  window.location.replace("login.html");
+}

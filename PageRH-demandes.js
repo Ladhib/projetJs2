@@ -8,13 +8,12 @@ var app = new (function () {
   var duréeDemande;
   this.fetchall = () => {
     var data = "";
-    
 
     demandesFilter.forEach((demande, i) => {
       data += "<tr>";
-      data += "<td>" + demande.id + "</td>";
       data += "<td>" + demande.nom + "</td>";
       data += "<td>" + demande.prenom + "</td>";
+
       data += "<td>" + demande.dateDebut + "</td>";
       data += "<td>" + demande.dateFin + "</td>";
 
@@ -27,7 +26,6 @@ var app = new (function () {
       data += `<td><button type="button" class="btn btn-primary" onclick="app.in(${i})" data-toggle="modal" data-target="#AccModal" >Accepter</button></td>`;
       data += `<td><button type="button" class="btn btn-danger"  onclick="app.in(${i})" data-toggle="modal" data-target="#deleteModal">Refuser</button></td>`;
       data += "</tr>";
-    
     });
     document.getElementById("tbody").innerHTML = data;
   };
@@ -43,17 +41,17 @@ var app = new (function () {
         x.dateFin == demandesFilter[index].dateFin &&
         x.statutDemande == demandesFilter[index].statutDemande
     );
+
     demandes[ind].statutDemande = "Acceptée par RH";
     // console.log(demandes[index].statutDemande);
-    duréeDemande= 
-    // idDemande=demandesFilter[index].id
-    localStorage.setItem("demandes", JSON.stringify(demandes));
+    duréeDemande =
+      // idDemande=demandesFilter[index].id
+      localStorage.setItem("demandes", JSON.stringify(demandes));
     console.log(duréeDemande);
-    const found = users.find((obj) => (demandesFilter[index].id == obj.id));
+
+    const found = users.find((obj) => demandesFilter[index].id == obj.id);
     found.soldeCongé = found.soldeCongé - demandesFilter[index].durée;
-    console.log(found.soldeCongé);
     localStorage.setItem("users", JSON.stringify(users));
-    
   };
 
   this.refuser = () => {
@@ -67,12 +65,10 @@ var app = new (function () {
     demandes[ind].statutDemande = "Refusée";
     localStorage.setItem("demandes", JSON.stringify(demandes));
   };
-   
-  
 })();
 app.fetchall();
 
-function LOGOUT(){
+function LOGOUT() {
   localStorage.removeItem("user");
-  window.location.replace("login.html")
-}  
+  window.location.replace("login.html");
+}

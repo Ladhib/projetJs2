@@ -10,10 +10,10 @@ function seConnecter() {
     if (utlisateur != undefined) {
       if (utlisateur.poste == 0) {
         localStorage.setItem("user", JSON.stringify(utlisateur));
-        location.replace("pageEm.html");
+        location.replace("pageEm-demande.html");
       } else if (utlisateur.poste == 1) {
         localStorage.setItem("user", JSON.stringify(utlisateur));
-        window.location.href = "pageSUP.html";
+        window.location.href = "pageSUP-Demandes.html";
       } else if (utlisateur.poste == 2) {
         localStorage.setItem("user", JSON.stringify(utlisateur));
         window.location.href = "pageRH.html";
