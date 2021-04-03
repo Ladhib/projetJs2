@@ -63,7 +63,8 @@ function add() {
     (EM.checked == true || SUP.checked == true || RH.checked == true) &&
     ValidateEmail(email) &&
     Validatepassword(password)
-  ) {
+  ) 
+  {
     var obj = {
       id: users.length + 10000,
       nom: nom,
